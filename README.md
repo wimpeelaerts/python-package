@@ -71,7 +71,6 @@ Do this to isolate the dependancies for the development of this package
             black
 
 - smart thing to do: under tool:pytest -> replace "term-missing" with "html"  (report documentation as html)
-- optional: under build_sphinx -> change the build dir build_dir = build/sphinx to build_dir = docs/_build
 
 # Create development environment
 
@@ -84,6 +83,30 @@ PyScaffold’s recommendation is to use a filed in the "options.extras_require" 
 
     pip install -e .[develop]
 
+# First use 
+
+Use the module "skeleton" in your package "python_package" to call the fib() function in a Python session. 
+
+    python
+    import python_package as pp
+    pp.skeleton.fib(10)
+
+    import python_package.skeleton as skeleton
+    skeleton.fib(10)
+
+Do the same from te commandline 
+
+Add a following lines to the section "options.entry_points" in setup.cfg. This will create the function run in the skeleton module as an enterypoint for the fibonacci cmd. 
+
+    console_scripts =
+        fibonacci = python_package.skeleton:run
+
+bash:
+
+    python setup.py develop
+    fibonacci 10 
+
+
 # Create distribution
 
 - Source distribution(sdist): includes readeble py files 
@@ -95,12 +118,23 @@ PyScaffold’s recommendation is to use a filed in the "options.extras_require" 
         python setup.py bdist
         python setup.py bdist_wheel
 
-# Sphinx Documentation
-
-    python setup.py docs
-
 # Unit tests (pytest)
 
 More info on unit tests [pytest.org](https://docs.pytest.org/en/latest/). All files starting with "test_" in the folder tests is picked up and executed. 
 
     Unit tests (pytest)
+
+# Sphinx Documentation
+
+    python setup.py docs
+
+## Optional: Get the read the docs look and feel 
+
+Change the docs/conf.py file 
+
+- add "import sphinx_rtd_theme" statement on top
+- adjust the html_theme to html_theme = 'sphinx_rtd_theme'
+- uncomment/adjust html_theme_path to html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+- drop the html_theme_options
+
+check docs\_build\html folder for the result
