@@ -149,4 +149,20 @@ Check ".pre-commit-config.yaml" in the package root folder
         python setup.py bdist
         python setup.py bdist_wheel
 
+# Distibute distributions 
+
+## PIP
+Build the package (python setup.py sdist, python setup.py bdist, python setup.py bdist_wheel) on a share filesystem (e.g. /home/wimpeelaerts/python-package/dist)
+
+    conda deactivate 
+    conda create -n test python=3
+    pip install /mnt/c/Users/peelaerw/python-package/dist/python_package-1.0.0.tar.gz    
+
+## Conda
+
+    setup.py bdist_conda
+
+!Better to use conda-build! ToDo
+
+
 # Hookup with CI/CD
