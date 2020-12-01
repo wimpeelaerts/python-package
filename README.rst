@@ -1,5 +1,5 @@
 ==============
-python-package
+python_package
 ==============
 
 

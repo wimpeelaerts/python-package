@@ -19,9 +19,10 @@ Create GIT repo and create master en develop branch
 Use the default command to create the blueprint of the package
 
     conda install -c conda-forge pyscaffold
-    putup python-package
-    mv python-package/* .
-    rm -rf python-package
+    putup python_package
+    mv python_package/* .
+    mv python_package/.* .
+    rm -rf python_package
     rm requirements.txt
 
 # Create condaenvironment
@@ -48,7 +49,7 @@ Do this to isolate the dependancies for the development of this package
     ├── setup.cfg                           <- MAIN CONFIGURATION FILE!
     ├── setup.py                            <- leave untouched, config is defined in setup.cfg
     ├── src                                
-    │   └── example_project                   <- the package code 
+    │   └── python_package                  <- the package code 
     │       ├── __init__.py
     │       └── skeleton.py
     └── tests                               <- unit tests (pytest)
@@ -73,4 +74,33 @@ Do this to isolate the dependancies for the development of this package
 - optional: under build_sphinx -> change the build dir build_dir = build/sphinx to build_dir = docs/_build
 
 # Create development environment
+
+Install the package dependancies ("install_requires" in setup.cfg). This will create and simlink the python_package.egg in your conda env
+
     python setup.py develop
+
+Install the test and develop dependancies (You would think "tests_require", but no, this field is not strictly enforced by setuptools)
+PyScaffold’s recommendation is to use a filed in the "options.extras_require" section like we did (develop). then 
+
+    pip install -e .[develop]
+
+# Create distribution
+
+- Source distribution(sdist): includes readeble py files 
+
+        python setup.py sdist
+
+- Built distribution(bdist): includes compiled pyc files -> specific to a platform and Python version.
+
+        python setup.py bdist
+        python setup.py bdist_wheel
+
+# Sphinx Documentation
+
+    python setup.py docs
+
+# Unit tests (pytest)
+
+More info on unit tests [pytest.org](https://docs.pytest.org/en/latest/). All files starting with "test_" in the folder tests is picked up and executed. 
+
+    Unit tests (pytest)
