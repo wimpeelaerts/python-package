@@ -81,7 +81,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'python-package'
+project = u'python_package'
 copyright = u'2020, wimpeelaerts'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -235,7 +235,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'user_guide.tex', u'python-package Documentation',
+  ('index', 'user_guide.tex', u'python_package Documentation',
    u'wimpeelaerts', 'manual'),
 ]
 

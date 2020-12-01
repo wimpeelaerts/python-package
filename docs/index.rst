@@ -1,8 +1,8 @@
 ==============
-python-package
+python_package
 ==============
 
-This is the documentation of **python-package**.
+This is the documentation of **python_package**.
 
 .. note::
 
