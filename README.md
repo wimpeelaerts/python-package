@@ -138,3 +138,6 @@ Change the docs/conf.py file
 - drop the html_theme_options
 
 check docs\_build\html folder for the result
+
+## Module reference
+Automatic creation of the API classes/modules documentation when code is propper documented using [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format 

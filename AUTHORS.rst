@@ -2,4 +2,4 @@
 Contributors
 ============
 
-* wimpeelaerts <wim.peelaerts@vito.be>
+* Wim Peelaerts <wim.peelaerts@gmail.com>
