@@ -106,18 +106,6 @@ bash:
     python setup.py develop
     fibonacci 10 
 
-
-# Create distribution
-
-- Source distribution(sdist): includes readeble py files 
-
-        python setup.py sdist
-
-- Built distribution(bdist): includes compiled pyc files -> specific to a platform and Python version.
-
-        python setup.py bdist
-        python setup.py bdist_wheel
-
 # Unit tests (pytest)
 
 More info on unit tests [pytest.org](https://docs.pytest.org/en/latest/). All files starting with "test_" in the folder tests is picked up and executed. 
@@ -140,4 +128,25 @@ Change the docs/conf.py file
 check docs\_build\html folder for the result
 
 ## Module reference
+
 Automatic creation of the API classes/modules documentation when code is propper documented using [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format 
+
+# Optional Code formatting
+
+Enforce PEP8 style guide via pre-commit 
+Check ".pre-commit-config.yaml" in the package root folder 
+
+    pre-commit install
+
+# Create distribution
+
+- Source distribution(sdist): includes readeble py files 
+
+        python setup.py sdist
+
+- Built distribution(bdist): includes compiled pyc files -> specific to a platform and Python version.
+
+        python setup.py bdist
+        python setup.py bdist_wheel
+
+# Hookup with CI/CD
